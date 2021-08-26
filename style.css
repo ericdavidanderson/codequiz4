@@ -1,0 +1,9 @@
+.body {
+    flex-wrap:wrap;
+    border-radius: 15px;
+    border-color: green;
+    justify-content: center;
+    margin-left: 50px;
+    text-decoration-color: hotpink;
+
+}
