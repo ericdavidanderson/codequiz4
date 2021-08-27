@@ -1,10 +1,15 @@
 var Q1 = "What is the name of the HTML element that we put JavaScript in?";
+
 var Q2 = "Where is the correct place to insert a JavaScript?";
-var Q3 =
-  "What is the correct syntax for referring to an external script called 'xxx.js'?";
+
+var Q3 ="What is the correct syntax for referring to an external script called 'xxx.js'?";
+
 var Q4 = "What is the correc way to write 'message' in an alert box?";
+
 var Q5 = "How do you create a function in JavaScript?";
+
 var Q6 = "How do you call a function named xFunction?";
+
 
 var start = document.querySelector("#startQuiz");
 var printQuestion = document.querySelector("#question");
@@ -21,17 +26,9 @@ function startQuiz() {
   // <button onclick="w3.hide('#start')">Hide</button>;
   document.getElementById("startQuiz").style.display= "none";
   startTimer();
-  viewAnswers();
   printQuestion.textContent = variable1[questionCounter].question;
-  
-
-  // questionCounter++;
-
-  // questionCounter++;
-  //   if (questionCounter > 5) {
-  //     questionCounter = 0;
-  //   }
-}
+  viewAnswers();
+  }
 
 function viewAnswers() {
   for (var i = 0; i < 4; i++) {
@@ -58,8 +55,10 @@ function checkAnswer() {
     //thie is code to add points to score sheet and move to next question
 
     console.log("correct");
+    questionCounter++;
   } else{
     console.log("incorrect");
+    secondsLeft=secondsLeft-5;
     //subtract points?  definitely subtract time
   }
   // questionCounter++;
