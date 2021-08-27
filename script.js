@@ -18,41 +18,53 @@ var questionCounter = 0;
 start.addEventListener("click", startQuiz);
 
 function startQuiz() {
+  // <button onclick="w3.hide('#start')">Hide</button>;
+  document.getElementById("startQuiz").style.display= "none";
   startTimer();
   viewAnswers();
   printQuestion.textContent = variable1[questionCounter].question;
+  
+
   // questionCounter++;
-  if (questionCounter > 5) {
-    questionCounter = 0;
-  }
+
+  // questionCounter++;
+  //   if (questionCounter > 5) {
+  //     questionCounter = 0;
+  //   }
 }
 
 function viewAnswers() {
   for (var i = 0; i < 4; i++) {
     var singleChoice = document.createElement("button");
-singleChoice.onclick= checkAnswer;
+    singleChoice.onclick = checkAnswer;
     singleChoice.textContent = variable1[questionCounter].choices[i];
     multipleAnswers.append(singleChoice);
-    checkAnswer();
-    
-  
+    // checkAnswer();
   }
+}
 
-  //check answer before answerCounter
-  // answerCounter++;
+//check answer before answerCounter
+// answerCounter++;
 
 //   if (answerCounter > 5) {
 //     answerCounter = 0;
 //   }
-}
-function checkAnswer(){
-  console.log("I was checked")
-console.log(this.textContent)
-if(this.textContent === variable1[questionCounter].correctAnswer){
-  console.log("correct")
-}
-//question counter here
-//recall function of viewAnswers
+// }
+
+function checkAnswer() {
+  console.log("I was checked");
+  console.log(this.textContent);
+  if (this.textContent === variable1[questionCounter].correctAnswer) {
+    //thie is code to add points to score sheet and move to next question
+
+    console.log("correct");
+  } else{
+    console.log("incorrect");
+    //subtract points?  definitely subtract time
+  }
+  // questionCounter++;
+  //question counter here
+  //recall function of viewAnswers
 }
 
 secondsLeft = 30;
@@ -68,10 +80,10 @@ function startTimer() {
   }, 1000);
 }
 
-function endGame() {
-  alert("hello");
-  return;
-}
+// function endGame() {
+//   alert("hello");
+//   return;
+// }
 
 var variable1 = [
   {
@@ -140,6 +152,6 @@ var variable1 = [
   },
 ];
 
-console.log(variable1[questionCounter].question);
-// questionCounter++;
-console.log(variable1[questionCounter].question);
+// console.log(variable1[questionCounter].question)
+// // questionCounter++;
+// console.log(variable1[questionCounter].question)
