@@ -15,7 +15,7 @@ var start = document.querySelector("#startQuiz");
 var printQuestion = document.querySelector("#question");
 var multipleAnswers = document.querySelector("#choices");
 var timex = document.querySelector("#timer");
-var score = document.querySelector('#score');
+var score = document.querySelector("#score");
 //  var currentQuestion = start;
 
 var questionCounter = 0;
@@ -25,16 +25,19 @@ var scoreKeeper = 0;
 start.addEventListener("click", startQuiz);
 
 function startQuiz() {
-  // <button onclick="w3.hide('#start')">Hide</button>;
   document.getElementById("startQuiz").style.display= "none";
   startTimer();
-  viewAnswers();
-  
-  for (var i = 0; i<5; i++){
-      printQuestion.textContent = variable1[questionCounter].question[i];
-  }
-      
-  }
+  // var firstQuestion = variable1[questionCounter].question;
+  // printQuestion = firstQuestion.textContent;
+  viewAnswers()
+}
+  // viewAnswers();
+  // nextQuestion();
+
+  // function quizFlow(){
+  //   viewAnswers()
+  // }
+  // }
 
 function viewAnswers() {
   for (var i = 0; i < 4; i++) {
@@ -42,17 +45,9 @@ function viewAnswers() {
     singleChoice.onclick = checkAnswer;
     singleChoice.textContent = variable1[questionCounter].choices[i];
     multipleAnswers.append(singleChoice);
-    // checkAnswer();
-  }
+    
+    // }questionCounter++;
 }
-
-//check answer before answerCounter
-// answerCounter++;
-
-//   if (answerCounter > 5) {
-//     answerCounter = 0;
-//   }
-// }
 
 function checkAnswer() {
   console.log("I was checked");
@@ -71,6 +66,14 @@ function checkAnswer() {
   //question counter here
   //recall function of viewAnswers
 }
+// function nextQuestion(){
+//   for (var i = 0; i<5; i++){
+//     printQuestion.textContent = variable1[questionCounter].question[i];
+//     questionCounter++;
+// }
+//     printQuestion.textContent = variable1[questionCounter].question;
+
+}
 
 secondsLeft = 30;
 
@@ -84,7 +87,11 @@ function startTimer() {
     }
   }, 1000);
 }
+scoreKeeper = 0;
 
+function gameScore(){
+  
+}
 // function endGame() {
 //   alert("hello");
 //   return;
