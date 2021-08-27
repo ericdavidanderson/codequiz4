@@ -15,9 +15,11 @@ var start = document.querySelector("#startQuiz");
 var printQuestion = document.querySelector("#question");
 var multipleAnswers = document.querySelector("#choices");
 var timex = document.querySelector("#timer");
+var score = document.querySelector('#score');
 //  var currentQuestion = start;
 
 var questionCounter = 0;
+var scoreKeeper = 0;
 // var answerCounter = 0;
 
 start.addEventListener("click", startQuiz);
@@ -26,8 +28,12 @@ function startQuiz() {
   // <button onclick="w3.hide('#start')">Hide</button>;
   document.getElementById("startQuiz").style.display= "none";
   startTimer();
-  printQuestion.textContent = variable1[questionCounter].question;
   viewAnswers();
+  
+  for (var i = 0; i<5; i++){
+      printQuestion.textContent = variable1[questionCounter].question[i];
+  }
+      
   }
 
 function viewAnswers() {
@@ -55,7 +61,7 @@ function checkAnswer() {
     //thie is code to add points to score sheet and move to next question
 
     console.log("correct");
-    questionCounter++;
+    // questionCounter++;
   } else{
     console.log("incorrect");
     secondsLeft=secondsLeft-5;
