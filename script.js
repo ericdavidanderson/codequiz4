@@ -18,6 +18,7 @@ var timex = document.querySelector("#timer");
 var score = document.querySelector("#score");
 
 
+
 var questionCounter = 0;
 var scoreKeeper = 0;
 // var answerCounter = 0;
@@ -56,7 +57,9 @@ function viewAnswers() {
     console.log(this.textContent);
     if (this.textContent === variable1[questionCounter].correctAnswer) {
       //thie is code to add points to score sheet and move to next question
-
+scoreKeeper += 5
+console.log(scoreKeeper)
+score.textContent= "your score is " + scoreKeeper;
       console.log("correct");
     } else {
       console.log("incorrect");
