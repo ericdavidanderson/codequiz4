@@ -2,7 +2,8 @@ var Q1 = "What is the name of the HTML element that we put JavaScript in?";
 
 var Q2 = "Where is the correct place to insert a JavaScript?";
 
-var Q3 ="What is the correct syntax for referring to an external script called 'xxx.js'?";
+var Q3 =
+  "What is the correct syntax for referring to an external script called 'xxx.js'?";
 
 var Q4 = "What is the correc way to write 'message' in an alert box?";
 
@@ -10,13 +11,12 @@ var Q5 = "How do you create a function in JavaScript?";
 
 var Q6 = "How do you call a function named xFunction?";
 
-
 var start = document.querySelector("#startQuiz");
 var printQuestion = document.querySelector("#question");
 var multipleAnswers = document.querySelector("#choices");
 var timex = document.querySelector("#timer");
 var score = document.querySelector("#score");
-//  var currentQuestion = start;
+
 
 var questionCounter = 0;
 var scoreKeeper = 0;
@@ -25,54 +25,52 @@ var scoreKeeper = 0;
 start.addEventListener("click", startQuiz);
 
 function startQuiz() {
-  document.getElementById("startQuiz").style.display= "none";
+  document.getElementById("startQuiz").style.display = "none";
   startTimer();
   // var firstQuestion = variable1[questionCounter].question;
   // printQuestion = firstQuestion.textContent;
-  viewAnswers()
+  viewAnswers();
 }
-  // viewAnswers();
-  // nextQuestion();
+// viewAnswers();
+// nextQuestion();
 
-  // function quizFlow(){
-  //   viewAnswers()
-  // }
-  // }
+// function quizFlow(){
+//   viewAnswers()
+// }
+// }
 
 function viewAnswers() {
+  multipleAnswers.innerHTML = "";
+  printQuestion.textContent = variable1[questionCounter].question;
   for (var i = 0; i < 4; i++) {
     var singleChoice = document.createElement("button");
     singleChoice.onclick = checkAnswer;
     singleChoice.textContent = variable1[questionCounter].choices[i];
     multipleAnswers.append(singleChoice);
-    
+
     // }questionCounter++;
-}
-
-function checkAnswer() {
-  console.log("I was checked");
-  console.log(this.textContent);
-  if (this.textContent === variable1[questionCounter].correctAnswer) {
-    //thie is code to add points to score sheet and move to next question
-
-    console.log("correct");
-    // questionCounter++;
-  } else{
-    console.log("incorrect");
-    secondsLeft=secondsLeft-5;
-    //subtract points?  definitely subtract time
   }
-  // questionCounter++;
-  //question counter here
-  //recall function of viewAnswers
-}
-// function nextQuestion(){
-//   for (var i = 0; i<5; i++){
-//     printQuestion.textContent = variable1[questionCounter].question[i];
-//     questionCounter++;
-// }
-//     printQuestion.textContent = variable1[questionCounter].question;
 
+  function checkAnswer() {
+    console.log("I was checked");
+    console.log(this.textContent);
+    if (this.textContent === variable1[questionCounter].correctAnswer) {
+      //thie is code to add points to score sheet and move to next question
+
+      console.log("correct");
+    } else {
+      console.log("incorrect");
+      secondsLeft = secondsLeft - 5;
+
+      //subtract points?  definitely subtract time
+    }
+    if (questionCounter < variable1.length - 1) {
+      questionCounter++;
+    } else questionCounter = 0;
+
+    viewAnswers();
+  }
+  printQuestion.textContent = variable1[questionCounter].question;
 }
 
 secondsLeft = 30;
@@ -82,16 +80,20 @@ function startTimer() {
     secondsLeft--;
     timex.textContent = secondsLeft + "seconds left";
 
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       clearInterval(timerInterval);
+      gameOver();
+     
     }
   }, 1000);
 }
-scoreKeeper = 0;
 
-function gameScore(){
-  
+function gameOver() {
+  document.getElementsByClassName("questionCard")[0].style.visibility = "hidden";
+   console.log("testing gameOver function");
 }
+
+function gameScore() {}
 // function endGame() {
 //   alert("hello");
 //   return;
