@@ -17,6 +17,8 @@ var multipleAnswers = document.querySelector("#choices");
 var timex = document.querySelector("#timer");
 var score = document.querySelector("#score");
 
+var totalEnd =document.querySelector("#totalCurrentScore");
+var highscore= document.querySelector("#highscore");
 
 
 var questionCounter = 0;
@@ -86,6 +88,7 @@ function startTimer() {
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       gameOver();
+      
      
     }
   }, 1000);
@@ -94,6 +97,7 @@ function startTimer() {
 function gameOver() {
   document.getElementsByClassName("questionCard")[0].style.visibility = "hidden";
    console.log("testing gameOver function");
+   totalEnd.textContent = "This was your total score:" + scoreKeeper;
 }
 
 function gameScore() {}
