@@ -101,19 +101,24 @@ function gameOver() {
   document.getElementsByClassName("questionCard")[0].style.visibility = "hidden";
    console.log("testing gameOver function");
    totalEnd.textContent = "This was your total score:" + scoreKeeper;
-   localStorage.setItem(highscoreKeeper);
-   if (highscoreKeeper < scoreKeeper){
-     highscoreKeeper = scoreKeeper;
-     congrats.textContent= "Congratulations!  You have the new high score record."
+   topGun();
+}
+var tG = localStorage.getItem("highscore")
+tG.textContent = highscore;
+localStorage.setItem("highscore", tG);
+function topGun() {
+if (highscoreKeeper < scoreKeeper) {
+  console.log("10");
+  highscoreKeeper = scoreKeeper;
+  congrats.textContent =
+    "Congratulations!  You have the new high score record.";
+  }
+  else{
+    console.log("display old high score")
+  }
 
-   }
 }
 
-function gameScore() {}
-// function endGame() {
-//   alert("hello");
-//   return;
-// }
 
 var variable1 = [
   {
