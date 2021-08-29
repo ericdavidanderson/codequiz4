@@ -20,6 +20,7 @@ var score = document.querySelector("#score");
 var totalEnd =document.querySelector("#totalCurrentScore");
 var highscore= document.querySelector("#highscore");
 var congrats= document.querySelector("#Congratulations");
+var playAgain = document.querySelector("#playAgain");
 
 
 var questionCounter = 0;
@@ -100,21 +101,32 @@ function startTimer() {
 function gameOver() {
   document.getElementsByClassName("questionCard")[0].style.visibility = "hidden";
    console.log("testing gameOver function");
-   totalEnd.textContent = "This was your total score:" + scoreKeeper;
    topGun();
+   
+
 }
-var tG = localStorage.getItem("highscore")
-tG.textContent = highscore;
-localStorage.setItem("highscore", tG);
+
+
+
+localStorage.setItem("highscore", highscoreKeeper);
+var tG = localStorage.getItem("highscore");
+
+
 function topGun() {
-if (highscoreKeeper < scoreKeeper) {
-  console.log("10");
+if (scoreKeeper > highscoreKeeper) {
+  console.log("This should log for new highscore");
   highscoreKeeper = scoreKeeper;
   congrats.textContent =
-    "Congratulations!  You have the new high score record.";
+    "Congratulations!  You have the new high score record of " + highscoreKeeper;
+    highscoreKeeper.textContent = highscore;
+    playAgain.addEventListener("click", startQuiz);
   }
   else{
     console.log("display old high score")
+    totalEnd.textContent = "This was your total score:" + scoreKeeper;
+    tG.textContent = highscore;
+    playAgain.addEventListener("click", startQuiz);
+
   }
 
 }
