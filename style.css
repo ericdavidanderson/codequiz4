@@ -7,3 +7,5 @@
     text-decoration-color: hotpink;
 
 }
+
+document.body:hover {color:blue;}
