@@ -19,10 +19,13 @@ var score = document.querySelector("#score");
 
 var totalEnd =document.querySelector("#totalCurrentScore");
 var highscore= document.querySelector("#highscore");
+var congrats= document.querySelector("#Congratulations");
 
 
 var questionCounter = 0;
 var scoreKeeper = 0;
+var highscoreKeeper=0;
+
 // var answerCounter = 0;
 
 start.addEventListener("click", startQuiz);
@@ -98,6 +101,12 @@ function gameOver() {
   document.getElementsByClassName("questionCard")[0].style.visibility = "hidden";
    console.log("testing gameOver function");
    totalEnd.textContent = "This was your total score:" + scoreKeeper;
+   localStorage.setItem(highscoreKeeper);
+   if (highscoreKeeper < scoreKeeper){
+     highscoreKeeper = scoreKeeper;
+     congrats.textContent= "Congratulations!  You have the new high score record."
+
+   }
 }
 
 function gameScore() {}
