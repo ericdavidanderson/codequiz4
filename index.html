@@ -4,35 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="css" href="./style.css" />
+   <link rel="stylesheet" href="style.css">
     <title>Code Quiz</title>
   </head>
   <body>
-    <div style="text-align:center;"class="card">
-      <h1 >Java Script Quiz</h1>
-      <button  id="startQuiz" >Start</button>
+    <div style="text-align: center" class="card">
+      <h1>Java Script Quiz</h1>
+      <button id="startQuiz">Start</button>
     </div>
 
-    <div style="text-align:center;" class="questionCard">
-       
+    <div style="text-align: center" class="questionCard">
       <div id="question"></div>
-       <div id="choices"></div>
-       <div id="timer"></div>
-       <div id='score'></div>
-       
+      <div id="choices"></div>
+      <div id="timer"></div>
     </div>
 
-    <div style="text-align:center;" class="scoresheet">
-       
-       <div  id="totalCurrentScore"></div>
-       <div id="highscore"></div>
-       <div id ="Congratulations"></div>
-      </div>
+    <div style="text-align: center" id="score"></div>
 
-      <div style="text-align:right;" class= "reStart">
-       <button id ="playAgain">Play Again</button>
-      </div>
+    <div class="scoresheet hidden" style="text-align: center" >
+      <div id="highscore"></div>
+      <input type="text" id="initials" />
+      <button id="submitInit">Submit initials</button>
+      <ul id="tG"></ul>
+      <button id="playAgain">Play Again</button>
+    </div>
 
-  <script src="script.js"></script>
+   
+
+    <script src="script.js"></script>
   </body>
 </html>

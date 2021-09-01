@@ -1,15 +1,15 @@
-var Q1 = "What is the name of the HTML element that we put JavaScript in?";
+// var Q1 = "What is the name of the HTML element that we put JavaScript in?";
 
-var Q2 = "Where is the correct place to insert a JavaScript?";
+// var Q2 = "Where is the correct place to insert a JavaScript?";
 
-var Q3 =
-  "What is the correct syntax for referring to an external script called 'xxx.js'?";
+// var Q3 =
+//   "What is the correct syntax for referring to an external script called 'xxx.js'?";
 
-var Q4 = "What is the correc way to write 'message' in an alert box?";
+// var Q4 = "What is the correc way to write 'message' in an alert box?";
 
-var Q5 = "How do you create a function in JavaScript?";
+// var Q5 = "How do you create a function in JavaScript?";
 
-var Q6 = "How do you call a function named xFunction?";
+// var Q6 = "How do you call a function named xFunction?";
 
 var start = document.querySelector("#startQuiz");
 var printQuestion = document.querySelector("#question");
@@ -17,15 +17,13 @@ var multipleAnswers = document.querySelector("#choices");
 var timex = document.querySelector("#timer");
 var score = document.querySelector("#score");
 
-var totalEnd =document.querySelector("#totalCurrentScore");
-var highscore= document.querySelector("#highscore");
-var congrats= document.querySelector("#Congratulations");
+var scoreLog = document.querySelector("#highscore");
+var congrats = document.querySelector("#Congratulations");
 var playAgain = document.querySelector("#playAgain");
-
-
+var init = document.querySelector("#initials");
+var tG = JSON.parse(window.localStorage.getItem("highscore")) || [];
 var questionCounter = 0;
 var scoreKeeper = 0;
-var highscoreKeeper=0;
 
 // var answerCounter = 0;
 
@@ -63,9 +61,9 @@ function viewAnswers() {
     console.log(this.textContent);
     if (this.textContent === variable1[questionCounter].correctAnswer) {
       //thie is code to add points to score sheet and move to next question
-scoreKeeper += 5
-console.log(scoreKeeper)
-score.textContent= "your score is " + scoreKeeper;
+      scoreKeeper += 5;
+      console.log(scoreKeeper);
+      score.textContent = "your score is " + scoreKeeper;
       console.log("correct");
     } else {
       console.log("incorrect");
@@ -92,45 +90,74 @@ function startTimer() {
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       gameOver();
-      
-     
     }
   }, 1000);
 }
 
-function gameOver() {
-  document.getElementsByClassName("questionCard")[0].style.visibility = "hidden";
-   console.log("testing gameOver function");
-   topGun();
-   
+function scLog() {
+  var output = "";
+  for (var i = 0; i < tG.length; i++) {
+    output += "<li> Player: " + tG[i].initials + " Score: " + tG[i].score + "</li>";
+  }
+  document.getElementById("tG").innerHTML = output;
+  console.log(tG);
+}
 
+function gameOver() {
+  document.querySelector(".questionCard").classList.add("hidden");
+  document.querySelector(".scoresheet").classList.remove("hidden");
+  console.log("testing gameOver function");
+  
 }
 
 
-
-localStorage.setItem("highscore", highscoreKeeper);
-var tG = localStorage.getItem("highscore");
+document.getElementById("submitInit").addEventListener("click",topGun);
 
 
 function topGun() {
-if (scoreKeeper > highscoreKeeper) {
-  console.log("This should log for new highscore");
-  highscoreKeeper = scoreKeeper;
-  congrats.textContent =
-    "Congratulations!  You have the new high score record of " + highscoreKeeper;
-    highscoreKeeper.textContent = highscore;
-    playAgain.addEventListener("click", startQuiz);
+  var initials = init.value.trim();
+  console.log(tG)
+  if (initials !== "") {
+    var newScore = {
+      score: scoreKeeper,
+      initials: initials,
+    };
+    tG.push(newScore);
+    window.localStorage.setItem("highscore", JSON.stringify(tG));
+    scLog()
   }
-  else{
-    console.log("display old high score")
-    totalEnd.textContent = "This was your total score:" + scoreKeeper;
-    tG.textContent = highscore;
-    playAgain.addEventListener("click", startQuiz);
-
-  }
-
 }
 
+// if (scoreKeeper > highscoreKeeper) {
+//   var tG = localStorage.getItem("highscore");
+//   localStorage.setItem("highscore", highscoreKeeper);
+//   console.log("This should log for new highscore");
+//   highscoreKeeper = scoreKeeper;
+//   congrats.textContent =
+//     "Congratulations!  You have the new high score record of " +
+//     highscoreKeeper;
+//   highscoreKeeper.textContent = highscore;
+// playAgain.addEventListener("click", startQuiz);
+// } else {
+//   console.log("display old high score");
+// totalEnd.textContent = "This was your total score:" + scoreKeeper;
+// tG.textContent = highscore;
+//     // playAgain.addEventListener("click", startQuiz);
+//   }
+// // }
+playAgain.addEventListener("click", restart);
+
+function restart() {
+  // document.getElementById("startQuiz").style.display = "none";
+  // document.getElementsByClassName("questionCard")[0].style.visibility =
+  //   "visible ";
+  document.querySelector(".scoresheet").classList.add("hidden");
+  document.querySelector(".questionCard").classList.remove("hidden");
+  secondsLeft = 30;
+  // scoreKeeper = 0;
+  startTimer();
+  viewAnswers();
+}
 
 var variable1 = [
   {
