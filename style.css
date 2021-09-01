@@ -1,5 +1,33 @@
 .hidden{
     display:none;
-    
+
 }
 
+.card{
+    font-weight: 900;
+    color:blue;
+    font-size:800;
+}
+
+#startQuiz{
+    color:hotpink;
+    background-color: blue;
+    border-radius: 25px;
+    padding: 10px, 5px, 10px, 5px;
+    width: 333px;
+    height: 133px;
+    font-size: 103px;
+    font-stretch: inherit;
+    font-style: initial;
+}
+
+#question{
+    color:maroon;
+    
+}
+#choices{
+    color:mediumblue;
+}
+.button{
+    color:mediumseagreen;
+}

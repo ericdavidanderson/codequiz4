@@ -36,13 +36,8 @@ function startQuiz() {
   // printQuestion = firstQuestion.textContent;
   viewAnswers();
 }
-// viewAnswers();
-// nextQuestion();
 
-// function quizFlow(){
-//   viewAnswers()
-// }
-// }
+
 
 function viewAnswers() {
   multipleAnswers.innerHTML = "";
@@ -97,7 +92,8 @@ function startTimer() {
 function scLog() {
   var output = "";
   for (var i = 0; i < tG.length; i++) {
-    output += "<li> Player: " + tG[i].initials + " Score: " + tG[i].score + "</li>";
+    output +=
+      "<li> Player: " + tG[i].initials + " Score: " + tG[i].score + "</li>";
   }
   document.getElementById("tG").innerHTML = output;
   console.log(tG);
@@ -107,16 +103,13 @@ function gameOver() {
   document.querySelector(".questionCard").classList.add("hidden");
   document.querySelector(".scoresheet").classList.remove("hidden");
   console.log("testing gameOver function");
-  
 }
 
-
-document.getElementById("submitInit").addEventListener("click",topGun);
-
+document.getElementById("submitInit").addEventListener("click", topGun);
 
 function topGun() {
   var initials = init.value.trim();
-  console.log(tG)
+  console.log(tG);
   if (initials !== "") {
     var newScore = {
       score: scoreKeeper,
@@ -124,7 +117,7 @@ function topGun() {
     };
     tG.push(newScore);
     window.localStorage.setItem("highscore", JSON.stringify(tG));
-    scLog()
+    scLog();
   }
 }
 
@@ -158,6 +151,8 @@ function restart() {
   startTimer();
   viewAnswers();
 }
+
+
 
 var variable1 = [
   {
