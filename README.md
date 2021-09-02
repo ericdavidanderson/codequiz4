@@ -6,3 +6,5 @@
      -score keeper
      -local storage
      -time penalty for incorrect answers
+
+![page image](./codeQuiz.png)
