@@ -7,4 +7,7 @@
      -local storage
      -time penalty for incorrect answers
 
+     ## Special thanks to Bobbi Tarkany and Jessica Whitman. 
+
+
 ![page image](./codeQuiz.png)
