@@ -1,16 +1,3 @@
-// var Q1 = "What is the name of the HTML element that we put JavaScript in?";
-
-// var Q2 = "Where is the correct place to insert a JavaScript?";
-
-// var Q3 =
-//   "What is the correct syntax for referring to an external script called 'xxx.js'?";
-
-// var Q4 = "What is the correc way to write 'message' in an alert box?";
-
-// var Q5 = "How do you create a function in JavaScript?";
-
-// var Q6 = "How do you call a function named xFunction?";
-
 var start = document.querySelector("#startQuiz");
 var printQuestion = document.querySelector("#question");
 var multipleAnswers = document.querySelector("#choices");
@@ -25,19 +12,13 @@ var tG = JSON.parse(window.localStorage.getItem("highscore")) || [];
 var questionCounter = 0;
 var scoreKeeper = 0;
 
-// var answerCounter = 0;
-
 start.addEventListener("click", startQuiz);
 
 function startQuiz() {
   document.getElementById("startQuiz").style.display = "none";
   startTimer();
-  // var firstQuestion = variable1[questionCounter].question;
-  // printQuestion = firstQuestion.textContent;
   viewAnswers();
 }
-
-
 
 function viewAnswers() {
   multipleAnswers.innerHTML = "";
@@ -55,7 +36,6 @@ function viewAnswers() {
     console.log("I was checked");
     console.log(this.textContent);
     if (this.textContent === variable1[questionCounter].correctAnswer) {
-      //thie is code to add points to score sheet and move to next question
       scoreKeeper += 5;
       console.log(scoreKeeper);
       score.textContent = "your score is " + scoreKeeper;
@@ -64,7 +44,7 @@ function viewAnswers() {
       console.log("incorrect");
       secondsLeft = secondsLeft - 5;
 
-      //subtract points?  definitely subtract time
+      
     }
     if (questionCounter < variable1.length - 1) {
       questionCounter++;
@@ -121,38 +101,16 @@ function topGun() {
   }
 }
 
-// if (scoreKeeper > highscoreKeeper) {
-//   var tG = localStorage.getItem("highscore");
-//   localStorage.setItem("highscore", highscoreKeeper);
-//   console.log("This should log for new highscore");
-//   highscoreKeeper = scoreKeeper;
-//   congrats.textContent =
-//     "Congratulations!  You have the new high score record of " +
-//     highscoreKeeper;
-//   highscoreKeeper.textContent = highscore;
-// playAgain.addEventListener("click", startQuiz);
-// } else {
-//   console.log("display old high score");
-// totalEnd.textContent = "This was your total score:" + scoreKeeper;
-// tG.textContent = highscore;
-//     // playAgain.addEventListener("click", startQuiz);
-//   }
-// // }
 playAgain.addEventListener("click", restart);
 
 function restart() {
-  // document.getElementById("startQuiz").style.display = "none";
-  // document.getElementsByClassName("questionCard")[0].style.visibility =
-  //   "visible ";
+  
   document.querySelector(".scoresheet").classList.add("hidden");
   document.querySelector(".questionCard").classList.remove("hidden");
   secondsLeft = 30;
-  // scoreKeeper = 0;
   startTimer();
   viewAnswers();
 }
-
-
 
 var variable1 = [
   {
@@ -221,6 +179,4 @@ var variable1 = [
   },
 ];
 
-// console.log(variable1[questionCounter].question)
-// // questionCounter++;
-// console.log(variable1[questionCounter].question)
+
