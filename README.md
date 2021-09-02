@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # codeQuiz
 
 ### Quiz with JavaScript content:
@@ -8,7 +8,6 @@
      -local storage
      -time penalty for incorrect answers
      
-     (/images/logo.png)
-   
+     ![Alt Text](./codeQuiz.png)   
 
->>>>>>> 92dae7136c916ab1a7e46d1e4772b99684275920
+
