@@ -58,6 +58,9 @@
   font-stretch: inherit;
   font-style: initial;
   margin-top: 5px:
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #submitInit{
@@ -84,4 +87,5 @@
     font-size: 30px;
     color:rgb(1, 15, 7);
     font-style: comic sans;
+    list-style-type: none;
 }
