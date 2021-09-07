@@ -1,33 +1,87 @@
-.hidden{
-    display:none;
-
+.hidden {
+  display: none;
 }
 
-.card{
-    font-weight: 900;
-    color:blue;
-    font-size:800;
+.card {
+  font-weight: 900;
+  color: blue;
+  font-size: 800;
 }
 
-#startQuiz{
-    color:hotpink;
-    background-color: blue;
-    border-radius: 25px;
-    padding: 10px, 5px, 10px, 5px;
-    width: 333px;
-    height: 133px;
-    font-size: 103px;
-    font-stretch: inherit;
-    font-style: initial;
+#startQuiz {
+  color: hotpink;
+  background-color: blue;
+  border-radius: 25px;
+  padding: 10px, 5px, 10px, 5px;
+  width: 333px;
+  height: 133px;
+  font-size: 103px;
+  font-stretch: inherit;
+  font-style: initial;
 }
 
-#question{
-    color:maroon;
+#question {
+  color: rgb(29, 80, 13);
+  font-size: 50px;
+}
+
+.button {
+  color: rgb(1, 15, 7);
+  background-color: cadetblue;
+  border-radius: 10px;
+  height: 52px;
+  width: 372px;
+}
+
+.timerString {
+  color: crimson;
+  font-size: 40px;
+}
+
+#body {
+  background-color: wheat;
+}
+
+.scoreClass {
+  font-size: 50px;
+  color: rgb(179, 52, 52);
+}
+
+#playAgain {
+  color: hotpink;
+  background-color: blue;
+  border-radius: 25px;
+  padding: 10px, 5px, 10px, 5px;
+  width: 333px;
+  height: 133px;
+  font-size: 67px;
+  font-stretch: inherit;
+  font-style: initial;
+  margin-top: 5px:
+}
+
+#submitInit{
+    color:rgb(11, 11, 12);
+    background-color: rgb(26, 84, 143);
+    width:70px;
+    height: 56px;
+    border-radius: 15px;
+    /* padding: 10px; */
+    margin-bottom: 5px;
+}
+
+#initials{
+    background-color: #cfdde8;
+    color:rgba(19, 34, 177, 0.705);
     
+    height: 29px;
+    font-size: 30px;
+    margin-bottom: 5px;
+
 }
-#choices{
-    color:mediumblue;
-}
-.button{
-    color:mediumseagreen;
+
+#tG{
+    font-size: 30px;
+    color:rgb(1, 15, 7);
+    font-style: comic sans;
 }

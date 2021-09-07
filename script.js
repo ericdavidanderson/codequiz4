@@ -25,11 +25,10 @@ function viewAnswers() {
   printQuestion.textContent = variable1[questionCounter].question;
   for (var i = 0; i < 4; i++) {
     var singleChoice = document.createElement("button");
+    singleChoice.setAttribute("class", "button");
     singleChoice.onclick = checkAnswer;
     singleChoice.textContent = variable1[questionCounter].choices[i];
     multipleAnswers.append(singleChoice);
-
-    // }questionCounter++;
   }
 
   function checkAnswer() {
@@ -39,12 +38,11 @@ function viewAnswers() {
       scoreKeeper += 5;
       console.log(scoreKeeper);
       score.textContent = "your score is " + scoreKeeper;
+      score.setAttribute("class", "scoreClass");
       console.log("correct");
     } else {
       console.log("incorrect");
       secondsLeft = secondsLeft - 5;
-
-      
     }
     if (questionCounter < variable1.length - 1) {
       questionCounter++;
@@ -61,6 +59,7 @@ function startTimer() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timex.textContent = secondsLeft + "seconds left";
+    timex.setAttribute("class", "timerString");
 
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
@@ -104,7 +103,6 @@ function topGun() {
 playAgain.addEventListener("click", restart);
 
 function restart() {
-  
   document.querySelector(".scoresheet").classList.add("hidden");
   document.querySelector(".questionCard").classList.remove("hidden");
   secondsLeft = 30;
@@ -178,5 +176,3 @@ var variable1 = [
     correctAnswer: " b) xFunction();     ",
   },
 ];
-
-
